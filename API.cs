@@ -39,13 +39,16 @@ namespace LTIProject2
             JArray namespaces = (JArray)content.SelectToken("items");
             return namespaces;
         }
-        public void createNamespaces()
+        public void createNamespaces(string ip, string name)
         {
+            var url = new RestClient("http://" + ip + "/api/v1/namespaces");
+            var postRequest = new RestRequest("/", Method.POST);
 
         }
-        public void deleteNamespaces()
+        public void deleteNamespaces(string ip, string namesp)
         {
-
+            var url = new RestClient("http://" + ip + "/api/v1/namespaces/"+namesp);
+            var deleteRequest = new RestRequest("/", Method.DELETE);
         }
         public JArray listPods(string ip, string namesp)
         {
@@ -59,13 +62,15 @@ namespace LTIProject2
             JArray pods = (JArray)content.SelectToken("items");
             return pods;
         }
-        public void createPods()
+        public void createPods(string ip, string namesp, string pod)
         {
-
+            var url = new RestClient("http://" + ip + "/api/v1/namespaces/" + namesp + "/pods");
+            var postRequest = new RestRequest("/", Method.POST);
         }
-        public void deletePods()
+        public void deletePods(string ip, string namesp, string podname)
         {
-
+            var url = new RestClient("http://" + ip + "/api/v1/namespaces/" + namesp + "/pods/"+podname);
+            var deleteRequest = new RestRequest("/", Method.DELETE);
         }
         public JArray listDeployments(string ip, string namesp)
         {
@@ -79,13 +84,15 @@ namespace LTIProject2
             JArray deployments = (JArray)content.SelectToken("items");
             return deployments;
         }
-        public void createDeployments()
+        public void createDeployments(string ip, string namesp, string deploy)
         {
-
+            var url = new RestClient("http://" + ip + "/apis/apps/v1/namespaces/" + namesp + "/deployments");
+            var postRequest = new RestRequest("/", Method.POST);
         }
-        public void deleteDeployments()
+        public void deleteDeployments(string ip, string namesp, string deployname)
         {
-
+            var url = new RestClient("http://" + ip + "/apis/apps/v1/namespaces/" + namesp + "/deployments/"+deployname);
+            var deleteRequest = new RestRequest("/", Method.DELETE);
         }
         public JArray listServices(string ip, string namesp)
         {
@@ -99,13 +106,15 @@ namespace LTIProject2
             JArray services = (JArray)content.SelectToken("items");
             return services;
         }
-        public void createServices()
+        public void createServices(string ip, string namesp, string service)
         {
-
+            var url = new RestClient("http://" + ip + "/api/v1/namespaces/" + namesp + "/services");
+            var postRequest = new RestRequest("/", Method.POST);
         }
-        public void deleteServices()
+        public void deleteServices(string ip, string namesp, string servicename)
         {
-
+            var url = new RestClient("http://" + ip + "/api/v1/namespaces/" + namesp + "/services/"+servicename);
+            var deleteRequest = new RestRequest("/", Method.DELETE);
         }
     }
 }
