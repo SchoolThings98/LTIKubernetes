@@ -39,16 +39,24 @@ namespace LTIProject2
             JArray namespaces = (JArray)content.SelectToken("items");
             return namespaces;
         }
-        public void createNamespaces(string ip, string name)
+        public IRestResponse createNamespaces(string ip, string name)
         {
             var url = new RestClient("http://" + ip + "/api/v1/namespaces");
             var postRequest = new RestRequest("/", Method.POST);
-
+            var json = "{\"apiVersion\": \"v1\",\"kind\": \"Namespace\",\"metadata\": {\"name\": \""+name+"\"}}";
+            postRequest.AddJsonBody(json);
+            IRestResponse response = url.Execute(postRequest);
+            Console.WriteLine(response);
+            return response;
         }
-        public void deleteNamespaces(string ip, string namesp)
+        public IRestResponse deleteNamespaces(string ip, string namesp)
         {
             var url = new RestClient("http://" + ip + "/api/v1/namespaces/"+namesp);
             var deleteRequest = new RestRequest("/", Method.DELETE);
+
+            IRestResponse response = url.Execute(deleteRequest);
+            Console.WriteLine(response);
+            return response;
         }
         public JArray listPods(string ip, string namesp)
         {
@@ -66,6 +74,7 @@ namespace LTIProject2
         {
             var url = new RestClient("http://" + ip + "/api/v1/namespaces/" + namesp + "/pods");
             var postRequest = new RestRequest("/", Method.POST);
+            var json = "{\"apiVersion\": \"v1\",\"kind\": \"Pod\",\"metadata\": {\"name\": \"nginxTeste\"},\"spec\": {\"containers\": [{\"name\": \"nginx\",\"image\": \"nginx:1.7.9\",\"ports\": [{\"containerPort\": 80}]}]}}";
         }
         public void deletePods(string ip, string namesp, string podname)
         {
