@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -37,6 +38,30 @@ namespace LTIProject2
             foreach (var pod in pods)
             {
                 listBox1.Items.Add(pod["metadata"]["name"]);
+            }
+        }
+
+        private void buttonCreate_Click(object sender, EventArgs e)
+        {
+            API api = new API();
+            var response = api.createPods(ServerIP,comboBox1.Text,textBoxName.Text,textBoxLabel.Text,textBoxImgName.Text,textBoxImg.Text);
+            HttpStatusCode code = response.StatusCode;
+            if ((int)code != 201)
+            {
+                MessageBox.Show(response.StatusCode.ToString());
+                return;
+            }
+        }
+
+        private void buttonRemove_Click(object sender, EventArgs e)
+        {
+            API api = new API();
+            var response = api.deletePods(ServerIP,comboBox1.Text,listBox1.SelectedItem.ToString());
+            HttpStatusCode code = response.StatusCode;
+            if ((int)code != 200)
+            {
+                MessageBox.Show(response.StatusCode.ToString());
+                return;
             }
         }
     }
