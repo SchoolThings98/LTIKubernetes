@@ -70,6 +70,11 @@ namespace LTIProject2
 
         private void buttonRemove_Click(object sender, EventArgs e)
         {
+            if (listBox1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Plesase select one");
+                return;
+            }
             API api = new API();
             var response = api.deleteDeployments(ServerIP,comboBox1.Text,listBox1.SelectedItem.ToString());
             HttpStatusCode code = response.StatusCode;

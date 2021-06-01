@@ -66,6 +66,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormOneAction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOneAction.Designer.cs">
+      <DependentUpon>FormOneAction.cs</DependentUpon>
+    </Compile>
     <Compile Include="Namespaces.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOneAction.resx">
+      <DependentUpon>FormOneAction.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Namespaces.resx">
       <DependentUpon>Namespaces.cs</DependentUpon>

@@ -43,6 +43,11 @@ namespace LTIProject2
 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(textBoxName.Text) && string.IsNullOrEmpty(textBoxLabel.Text) && string.IsNullOrEmpty(textBoxImgName.Text) && string.IsNullOrEmpty(textBoxImg.Text))
+            {
+                MessageBox.Show("Um dos campos não foi preenchido");
+                return;
+            }
             API api = new API();
             var response = api.createPods(ServerIP,comboBox1.Text,textBoxName.Text,textBoxLabel.Text,textBoxImgName.Text,textBoxImg.Text);
             HttpStatusCode code = response.StatusCode;
@@ -55,6 +60,11 @@ namespace LTIProject2
 
         private void buttonRemove_Click(object sender, EventArgs e)
         {
+            if (listBox1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Plesase select one");
+                return;
+            }
             API api = new API();
             var response = api.deletePods(ServerIP,comboBox1.Text,listBox1.SelectedItem.ToString());
             HttpStatusCode code = response.StatusCode;

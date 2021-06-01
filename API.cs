@@ -149,5 +149,24 @@ namespace LTIProject2
             Console.WriteLine(response);
             return response;
         }
+
+        public IRestResponse createAll(string ip, string namesp, string deployname, string deploylabel, int replicas, string matchlabel, string cname, string cimage, int port, string portname,int porttarget,string type, string servicename)
+        {
+            //DEPLOY
+            var url = new RestClient("http://" + ip + "/apis/apps/v1/namespaces/" + namesp + "/deployments");
+            var postRequest = new RestRequest("/", Method.POST);
+            var json = "{\"apiVersion\": \"apps/v1\",\"kind\": \"Deployment\",\"metadata\": {\"name\": \"" + deployname + "\",\"labels\": {\"app\": \"" + deploylabel + "\"}},\"spec\": {\"replicas\": " + replicas + ",\"selector\": {\"matchLabels\": {\"app\": \"" + matchlabel + "\"}},\"template\": {\"metadata\": {\"labels\": {\"app\": \"" + matchlabel + "\"}},\"spec\": {\"containers\": [{\"name\": \"" + cname + "\",\"image\": \"" + cimage + "\",\"ports\": [{\"containerPort\": " + port + "}]}]}}}}";
+            postRequest.AddJsonBody(json);
+            IRestResponse response = url.Execute(postRequest);
+            Console.WriteLine(response);
+            //SERVICE
+            var url2 = new RestClient("http://" + ip + "/api/v1/namespaces/" + namesp + "/services");
+            var postRequest2 = new RestRequest("/", Method.POST);
+            var json2 = "{\"kind\": \"Service\",\"apiVersion\": \"v1\",\"metadata\": {\"name\": \"" + servicename + "\"},\"spec\": {\"ports\": [{\"name\": \"" + portname + "\",\"port\": " + port + ",\"targetPort\": " + porttarget + "}],\"selector\": {\"app\": \"" + deployname + "\"},\"type\": \"" + type + "\"}}";
+            postRequest2.AddJsonBody(json2);
+            IRestResponse response2 = url2.Execute(postRequest2);
+            Console.WriteLine(response2);
+            return response2;
+        }
     }
 }

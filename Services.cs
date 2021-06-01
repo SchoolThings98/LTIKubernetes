@@ -52,6 +52,22 @@ namespace LTIProject2
 
         private void button2_Click(object sender, EventArgs e)
         {
+            int a = 0;
+            if (string.IsNullOrEmpty(textBoxName.Text) && string.IsNullOrEmpty(textBoxPortName.Text) && string.IsNullOrEmpty(textBoxPortOrg.Text) && string.IsNullOrEmpty(textBoxPortTarget.Text) && string.IsNullOrEmpty(textBoxSelName.Text))
+            {
+                MessageBox.Show("Um dos campos não foi preenchido");
+                return;
+            }
+            if (!int.TryParse(textBoxPortOrg.Text, out a))
+            {
+                MessageBox.Show("Porto tem de ser um numero");
+                return;
+            }
+            if (!int.TryParse(textBoxPortTarget.Text, out a))
+            {
+                MessageBox.Show("Porto tem de ser um numero");
+                return;
+            }
             API api = new API();
             var response = api.createServices(ServerIP,comboBox1.Text,textBoxName.Text,textBoxPortName.Text,Int32.Parse(textBoxPortOrg.Text), Int32.Parse(textBoxPortTarget.Text),textBoxSelName.Text,comboBoxType.Text);
             HttpStatusCode code = response.StatusCode;
@@ -64,6 +80,11 @@ namespace LTIProject2
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if (listBox1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Plesase select one");
+                return;
+            }
             API api = new API();
             var response = api.deleteServices(ServerIP,comboBox1.Text,listBox1.SelectedItem.ToString());
             HttpStatusCode code = response.StatusCode;
