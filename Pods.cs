@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using YamlDotNet.RepresentationModel;
+using YamlDotNet.Serialization;
+using YamlDotNet.Serialization.NamingConventions;
 
 namespace LTIProject2
 {
@@ -73,6 +77,45 @@ namespace LTIProject2
                 MessageBox.Show(response.StatusCode.ToString());
                 return;
             }
+        }
+
+        private void buttonCreateYALM_Click(object sender, EventArgs e)
+        {
+            var fileName = "";
+            openFileDialogYAML.InitialDirectory = Application.StartupPath + @"\templates";
+            openFileDialogYAML.Filter = "yaml files (*.yaml)|*.yaml";
+            if (openFileDialogYAML.ShowDialog() == DialogResult.OK)
+            {
+                fileName = openFileDialogYAML.FileName;
+                MessageBox.Show("Ficheiro" + openFileDialogYAML.SafeFileName + " open with SUCCESS! ");
+            }
+            else
+            {
+                MessageBox.Show("Erro trying to open the selected file!!!");
+                return;
+            }
+            //var stream = new StreamReader(fileName);
+            /*var yaml = new YamlStream();
+            using (var reader = new StreamReader(fileName))
+            {
+                yaml.Load(reader);
+            }
+            Console.WriteLine(yaml);
+            Console.WriteLine(yaml);*/
+            var r = new StreamReader(fileName);
+            var deserializer = new Deserializer(namingConvention: new CamelCaseNamingConvention());
+            var yamlObject = deserializer.Deserialize(r);
+
+            // now convert the object to JSON. Simple!
+            Newtonsoft.Json.JsonSerializer js = new Newtonsoft.Json.JsonSerializer();
+
+            var w = new StringWriter();
+            js.Serialize(w, yamlObject);
+            string jsonText = w.ToString();
+            Console.WriteLine(jsonText);
+
+            API api = new API();
+            var response = api.createPodFile(ServerIP, comboBox1.Text, jsonText);
         }
     }
 }

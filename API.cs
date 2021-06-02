@@ -168,5 +168,14 @@ namespace LTIProject2
             Console.WriteLine(response2);
             return response2;
         }
+        public IRestResponse createPodFile(string ip, string namesp,string json)
+        {
+            var url = new RestClient("http://" + ip + "/api/v1/namespaces/" + namesp + "/pods");
+            var postRequest = new RestRequest("/", Method.POST);
+            postRequest.AddJsonBody(json);
+            IRestResponse response = url.Execute(postRequest);
+            Console.WriteLine(response);
+            return response;
+        }
     }
 }

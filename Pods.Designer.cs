@@ -43,6 +43,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.buttonCreateYALM = new System.Windows.Forms.Button();
+            this.openFileDialogYAML = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -174,11 +176,26 @@
             this.label6.TabIndex = 14;
             this.label6.Text = "Image";
             // 
+            // buttonCreateYALM
+            // 
+            this.buttonCreateYALM.Location = new System.Drawing.Point(321, 243);
+            this.buttonCreateYALM.Name = "buttonCreateYALM";
+            this.buttonCreateYALM.Size = new System.Drawing.Size(139, 34);
+            this.buttonCreateYALM.TabIndex = 15;
+            this.buttonCreateYALM.Text = "Create From YAML";
+            this.buttonCreateYALM.UseVisualStyleBackColor = true;
+            this.buttonCreateYALM.Click += new System.EventHandler(this.buttonCreateYALM_Click);
+            // 
+            // openFileDialogYAML
+            // 
+            this.openFileDialogYAML.FileName = "openFileDialog1";
+            // 
             // Pods
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonCreateYALM);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -219,5 +236,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button buttonCreateYALM;
+        private System.Windows.Forms.OpenFileDialog openFileDialogYAML;
     }
 }
