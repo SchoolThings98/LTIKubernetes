@@ -197,5 +197,42 @@ namespace LTIProject2
             Console.WriteLine(response);
             return response;
         }
+
+        public IRestResponse getPodInfo(string ip, string namesp, string pod)
+        {
+            var url = new RestClient("http://" + ip + "/api/v1/namespaces/" + namesp + "/pods/"+pod);
+            var getRequest = new RestRequest("/", Method.GET);
+
+            IRestResponse getResponse = url.Execute(getRequest);
+            Console.WriteLine(getResponse.Content);
+            return getResponse;
+        }
+        public IRestResponse getDeployInfo(string ip, string namesp, string deploy)
+        {
+            var url = new RestClient("http://" + ip + "/apis/apps/v1/namespaces/" + namesp + "/deployments/"+deploy);
+            var getRequest = new RestRequest("/", Method.GET);
+
+            IRestResponse getResponse = url.Execute(getRequest);
+            Console.WriteLine(getResponse.Content);
+            return getResponse;
+        }
+        public IRestResponse getServiceInfo(string ip, string namesp, string service)
+        {
+            var url = new RestClient("http://" + ip + "/api/v1/namespaces/" + namesp + "/services/"+service);
+            var getRequest = new RestRequest("/", Method.GET);
+
+            IRestResponse getResponse = url.Execute(getRequest);
+            Console.WriteLine(getResponse.Content);
+            return getResponse;
+        }
+        public IRestResponse getNamespaceInfo(string ip, string namesp)
+        {
+            var url = new RestClient("http://" + ip + "/api/v1/namespaces/"+namesp);
+            var getRequest = new RestRequest("/", Method.GET);
+
+            IRestResponse getResponse = url.Execute(getRequest);
+            Console.WriteLine(getResponse.Content);
+            return getResponse;
+        }
     }
 }

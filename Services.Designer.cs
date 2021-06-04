@@ -49,6 +49,7 @@
             this.comboBoxType = new System.Windows.Forms.ComboBox();
             this.buttonCreateFile = new System.Windows.Forms.Button();
             this.openFileDialogYAML = new System.Windows.Forms.OpenFileDialog();
+            this.buttonInfo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -63,7 +64,7 @@
             // 
             this.buttonSelect.Location = new System.Drawing.Point(341, 31);
             this.buttonSelect.Name = "buttonSelect";
-            this.buttonSelect.Size = new System.Drawing.Size(117, 23);
+            this.buttonSelect.Size = new System.Drawing.Size(133, 23);
             this.buttonSelect.TabIndex = 1;
             this.buttonSelect.Text = "Select";
             this.buttonSelect.UseVisualStyleBackColor = true;
@@ -135,7 +136,7 @@
             // 
             this.button2.Location = new System.Drawing.Point(341, 103);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(117, 23);
+            this.button2.Size = new System.Drawing.Size(133, 23);
             this.button2.TabIndex = 11;
             this.button2.Text = "Create";
             this.button2.UseVisualStyleBackColor = true;
@@ -145,7 +146,7 @@
             // 
             this.button3.Location = new System.Drawing.Point(341, 147);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(117, 23);
+            this.button3.Size = new System.Drawing.Size(133, 23);
             this.button3.TabIndex = 12;
             this.button3.Text = "Remove";
             this.button3.UseVisualStyleBackColor = true;
@@ -228,11 +229,22 @@
             // 
             this.openFileDialogYAML.FileName = "openFileDialog1";
             // 
+            // buttonInfo
+            // 
+            this.buttonInfo.Location = new System.Drawing.Point(341, 277);
+            this.buttonInfo.Name = "buttonInfo";
+            this.buttonInfo.Size = new System.Drawing.Size(133, 29);
+            this.buttonInfo.TabIndex = 21;
+            this.buttonInfo.Text = "Info";
+            this.buttonInfo.UseVisualStyleBackColor = true;
+            this.buttonInfo.Click += new System.EventHandler(this.buttonInfo_Click);
+            // 
             // Services
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonInfo);
             this.Controls.Add(this.buttonCreateFile);
             this.Controls.Add(this.comboBoxType);
             this.Controls.Add(this.label8);
@@ -284,5 +296,6 @@
         private System.Windows.Forms.ComboBox comboBoxType;
         private System.Windows.Forms.Button buttonCreateFile;
         private System.Windows.Forms.OpenFileDialog openFileDialogYAML;
+        private System.Windows.Forms.Button buttonInfo;
     }
 }

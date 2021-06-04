@@ -23,6 +23,7 @@ namespace LTIProject2
             buttonPods.Hide();
             buttonServices.Hide();
             listBox1.Hide();
+            button1.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -46,6 +47,7 @@ namespace LTIProject2
             buttonPods.Show();
             buttonServices.Show();
             listBox1.Show();
+            button1.Show();
             API api = new API();
             var nodes = api.listNodes(ServerIP);
             foreach (var node in nodes)

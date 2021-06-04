@@ -95,11 +95,29 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormInfoDeploy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInfoDeploy.Designer.cs">
+      <DependentUpon>FormInfoDeploy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInfoService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInfoService.Designer.cs">
+      <DependentUpon>FormInfoService.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormOneAction.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormOneAction.Designer.cs">
       <DependentUpon>FormOneAction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPodInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPodInfo.Designer.cs">
+      <DependentUpon>FormPodInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Namespaces.cs">
       <SubType>Form</SubType>
@@ -127,8 +145,17 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormInfoDeploy.resx">
+      <DependentUpon>FormInfoDeploy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInfoService.resx">
+      <DependentUpon>FormInfoService.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormOneAction.resx">
       <DependentUpon>FormOneAction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPodInfo.resx">
+      <DependentUpon>FormPodInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Namespaces.resx">
       <DependentUpon>Namespaces.cs</DependentUpon>

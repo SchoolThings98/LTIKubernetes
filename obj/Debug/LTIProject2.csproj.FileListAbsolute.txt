@@ -19,3 +19,6 @@ D:\Users\Filipe\Desktop\School\Licenciatura\LTI\Proj2\LTIProject2\bin\Debug\Newt
 D:\Users\Filipe\Desktop\School\Licenciatura\LTI\Proj2\LTIProject2\bin\Debug\Newtonsoft.Json.xml
 D:\Users\Filipe\Desktop\School\Licenciatura\LTI\Proj2\LTIProject2\obj\Debug\LTIProject2.FormOneAction.resources
 D:\Users\Filipe\Desktop\School\Licenciatura\LTI\Proj2\LTIProject2\bin\Debug\YamlDotNet.NetCore.dll
+D:\Users\Filipe\Desktop\School\Licenciatura\LTI\Proj2\LTIProject2\obj\Debug\LTIProject2.FormInfoDeploy.resources
+D:\Users\Filipe\Desktop\School\Licenciatura\LTI\Proj2\LTIProject2\obj\Debug\LTIProject2.FormInfoService.resources
+D:\Users\Filipe\Desktop\School\Licenciatura\LTI\Proj2\LTIProject2\obj\Debug\LTIProject2.FormPodInfo.resources

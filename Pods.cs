@@ -32,6 +32,13 @@ namespace LTIProject2
             {
                 comboBox1.Items.Add(name["metadata"]["name"]);
             }
+            textBoxName.Hide();
+            textBoxLabel.Hide();
+            textBoxImgName.Hide();
+            textBoxImg.Hide();
+            buttonCreate.Hide();
+            buttonRemove.Hide();
+            buttonCreateYALM.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -43,6 +50,13 @@ namespace LTIProject2
             {
                 listBox1.Items.Add(pod["metadata"]["name"]);
             }
+            textBoxName.Show();
+            textBoxLabel.Show();
+            textBoxImgName.Show();
+            textBoxImg.Show();
+            buttonCreate.Show();
+            buttonRemove.Show();
+            buttonCreateYALM.Show();
         }
 
         private void buttonCreate_Click(object sender, EventArgs e)
@@ -116,6 +130,12 @@ namespace LTIProject2
 
             API api = new API();
             var response = api.createPodFile(ServerIP, comboBox1.Text, jsonText);
+        }
+
+        private void buttonInfo_Click(object sender, EventArgs e)
+        {
+            FormPodInfo podInfo = new FormPodInfo(ServerIP,comboBox1.Text,listBox1.SelectedItem.ToString());
+            podInfo.ShowDialog();
         }
     }
 }

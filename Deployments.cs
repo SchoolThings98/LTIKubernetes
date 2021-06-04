@@ -32,6 +32,13 @@ namespace LTIProject2
             {
                 comboBox1.Items.Add(name["metadata"]["name"]);
             }
+            textBoxName.Hide();
+            textBoxLabel.Hide();
+            textBoxCName.Hide();
+            textBoxReplicas.Hide();
+            textBoxMLabel.Hide();
+            textBoxCImage.Hide();
+            textBoxPort.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -43,6 +50,13 @@ namespace LTIProject2
             {
                 listBox1.Items.Add(deploy["metadata"]["name"]);
             }
+            textBoxName.Show();
+            textBoxLabel.Show();
+            textBoxCName.Show();
+            textBoxReplicas.Show();
+            textBoxMLabel.Show();
+            textBoxCImage.Show();
+            textBoxPort.Show();
         }
 
         private void buttonCreate_Click(object sender, EventArgs e)
@@ -163,6 +177,12 @@ namespace LTIProject2
             Console.WriteLine(teste);
             API api = new API();
             var response = api.createDeployFile(ServerIP, comboBox1.Text, teste);
+        }
+
+        private void buttonInfo_Click(object sender, EventArgs e)
+        {
+            FormInfoDeploy deployInfo = new FormInfoDeploy(ServerIP,comboBox1.Text,listBox1.SelectedItem.ToString());
+            deployInfo.ShowDialog();
         }
     }
 }

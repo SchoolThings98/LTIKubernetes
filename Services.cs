@@ -36,6 +36,12 @@ namespace LTIProject2
             comboBoxType.Items.Add("ClusterIP");
             comboBoxType.Items.Add("NodePort");
             comboBoxType.Items.Add("LoadBalancer");
+            textBoxName.Hide();
+            textBoxPortName.Hide();
+            textBoxPortOrg.Hide();
+            textBoxPortTarget.Hide();
+            textBoxSelName.Hide();
+            comboBoxType.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -47,6 +53,12 @@ namespace LTIProject2
             {
                 listBox1.Items.Add(service["metadata"]["name"]);
             }
+            textBoxName.Show();
+            textBoxPortName.Show();
+            textBoxPortOrg.Show();
+            textBoxPortTarget.Show();
+            textBoxSelName.Show();
+            comboBoxType.Show();
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -162,6 +174,12 @@ namespace LTIProject2
             Console.WriteLine(teste);
             API api = new API();
             var response = api.createServiceFile(ServerIP, comboBox1.Text, teste);
+        }
+
+        private void buttonInfo_Click(object sender, EventArgs e)
+        {
+            FormInfoService serviceInfo = new FormInfoService(ServerIP,comboBox1.Text,listBox1.SelectedItem.ToString());
+            serviceInfo.ShowDialog();
         }
     }
 }

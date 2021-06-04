@@ -51,6 +51,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.buttonCreateFile = new System.Windows.Forms.Button();
             this.openFileDialogYAML = new System.Windows.Forms.OpenFileDialog();
+            this.buttonInfo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -244,11 +245,22 @@
             // 
             this.openFileDialogYAML.FileName = "openFileDialog1";
             // 
+            // buttonInfo
+            // 
+            this.buttonInfo.Location = new System.Drawing.Point(318, 259);
+            this.buttonInfo.Name = "buttonInfo";
+            this.buttonInfo.Size = new System.Drawing.Size(127, 23);
+            this.buttonInfo.TabIndex = 22;
+            this.buttonInfo.Text = "Info";
+            this.buttonInfo.UseVisualStyleBackColor = true;
+            this.buttonInfo.Click += new System.EventHandler(this.buttonInfo_Click);
+            // 
             // Deployments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonInfo);
             this.Controls.Add(this.buttonCreateFile);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -304,5 +316,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button buttonCreateFile;
         private System.Windows.Forms.OpenFileDialog openFileDialogYAML;
+        private System.Windows.Forms.Button buttonInfo;
     }
 }
