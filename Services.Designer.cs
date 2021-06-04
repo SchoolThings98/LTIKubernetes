@@ -47,6 +47,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.comboBoxType = new System.Windows.Forms.ComboBox();
+            this.buttonCreateFile = new System.Windows.Forms.Button();
+            this.openFileDialogYAML = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -212,11 +214,26 @@
             this.comboBoxType.Size = new System.Drawing.Size(144, 24);
             this.comboBoxType.TabIndex = 19;
             // 
+            // buttonCreateFile
+            // 
+            this.buttonCreateFile.Location = new System.Drawing.Point(341, 197);
+            this.buttonCreateFile.Name = "buttonCreateFile";
+            this.buttonCreateFile.Size = new System.Drawing.Size(133, 29);
+            this.buttonCreateFile.TabIndex = 20;
+            this.buttonCreateFile.Text = "Create From Yaml";
+            this.buttonCreateFile.UseVisualStyleBackColor = true;
+            this.buttonCreateFile.Click += new System.EventHandler(this.buttonCreateFile_Click);
+            // 
+            // openFileDialogYAML
+            // 
+            this.openFileDialogYAML.FileName = "openFileDialog1";
+            // 
             // Services
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonCreateFile);
             this.Controls.Add(this.comboBoxType);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -265,5 +282,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comboBoxType;
+        private System.Windows.Forms.Button buttonCreateFile;
+        private System.Windows.Forms.OpenFileDialog openFileDialogYAML;
     }
 }

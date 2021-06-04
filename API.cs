@@ -177,5 +177,25 @@ namespace LTIProject2
             Console.WriteLine(response);
             return response;
         }
+
+        public IRestResponse createDeployFile(string ip, string namesp, string json)
+        {
+            var url = new RestClient("http://" + ip + "/apis/apps/v1/namespaces/" + namesp + "/deployments");
+            var postRequest = new RestRequest("/", Method.POST);
+            postRequest.AddJsonBody(json);
+            IRestResponse response = url.Execute(postRequest);
+            Console.WriteLine(response);
+            return response;
+        }
+
+        public IRestResponse createServiceFile(string ip, string namesp, string json)
+        {
+            var url = new RestClient("http://" + ip + "/api/v1/namespaces/" + namesp + "/services");
+            var postRequest = new RestRequest("/", Method.POST);
+            postRequest.AddJsonBody(json);
+            IRestResponse response = url.Execute(postRequest);
+            Console.WriteLine(response);
+            return response;
+        }
     }
 }
