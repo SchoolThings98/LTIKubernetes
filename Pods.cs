@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using YamlDotNet.RepresentationModel;
@@ -120,16 +121,49 @@ namespace LTIProject2
             var deserializer = new Deserializer(namingConvention: new CamelCaseNamingConvention());
             var yamlObject = deserializer.Deserialize(r);
 
-            // now convert the object to JSON. Simple!
+            
             Newtonsoft.Json.JsonSerializer js = new Newtonsoft.Json.JsonSerializer();
 
             var w = new StringWriter();
             js.Serialize(w, yamlObject);
             string jsonText = w.ToString();
             Console.WriteLine(jsonText);
+            string pattern = @"([\d\.]+)";
+            //string pattern = @"(?<![A-Za-z0-9.])[0-9.]+";
+            string[] subs = Regex.Split(jsonText, pattern);
+            var number = subs.Count();
+            string teste = "";
+            int a;
+            for (int index = 0; index < number; index++)
+            {
+                if (index == 0)
+                {
+                    teste = subs[index];
+                }
+                if (index == 1)
+                {
+                    teste = teste + subs[index];
+                }
+                if (index > 1 && !int.TryParse(subs[index], out a))
+                {
+                    teste = teste + subs[index];
+                }
+                if (index > 1 && int.TryParse(subs[index], out a))
+                {
+                    var tempString = "";
+                    teste = teste.Remove(teste.Length - 1);
+                    teste = teste + subs[index];
+                    index++;
+                    tempString = subs[index].Substring(1);
+                    teste = teste + tempString;
+
+                }
+            }
+
+            Console.WriteLine(teste);
 
             API api = new API();
-            var response = api.createPodFile(ServerIP, comboBox1.Text, jsonText);
+            var response = api.createPodFile(ServerIP, comboBox1.Text,teste);
         }
 
         private void buttonInfo_Click(object sender, EventArgs e)
